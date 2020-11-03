@@ -35,6 +35,19 @@ TreeItem<type> *Tree<type>::lca(TreeItem<type> *item1, TreeItem<type> *item2)
 }
 
 template<class type>
+size_t Tree<type>::distance(TreeItem<type> *item1, TreeItem<type> *item2)
+{
+	TreeItem<type> *lcaItem = lca(item1, item2);
+	return abs(int(lcaItem->depth() - item1->depth())) + abs(int(lcaItem->depth() - item2->depth()));
+}
+
+template<class type>
+size_t Tree<type>::distanceThrough(TreeItem<type> *item1, TreeItem<type> *item2, TreeItem<type> *knot)
+{
+	return distance(item1, knot) + distance(item2, knot);
+}
+
+template<class type>
 void Tree<type>::buildTree(TreeItem<type> *root, TreeItem<type> *current, int depth)
 {
 	vector<TreeItem<type> *> child = current->child();
