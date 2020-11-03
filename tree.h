@@ -15,7 +15,7 @@ public:
 	Tree(vector<TreeItem<type>*> *elems, TreeItem<type> *root);
 
 	TreeItem<type> *lca(TreeItem<type> *item1, TreeItem<type> *item2);
-	size_t distance1(TreeItem<type> *item1, TreeItem<type> *item2);
+	size_t distance(TreeItem<type> *item1, TreeItem<type> *item2);
 	size_t distanceThrough(TreeItem<type> *item1, TreeItem<type> *item2, TreeItem<type> *knot);
 
 private:
